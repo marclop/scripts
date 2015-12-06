@@ -4,6 +4,7 @@
 #
 # Carlos Alonso
 # 02/12/2015
+#
 
 #!/bin/bash
 if [[ $EUID -eq 0 ]]; then
