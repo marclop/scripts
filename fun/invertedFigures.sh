@@ -1,35 +1,23 @@
 #!/bin/bash
 #
-# Script que compara dos nombres de dos dígits
-# i comprova si tenen les xifres invertides
+# Check if two figures numbers are
 #
 # Carlos Alonso
 # 5-12-2015
-
-printf "Entra el primer numero (10-99): "
-read x1
-while ((x1<10 || x>99));do
-  printf "Entra el primer numero (10-99): "
+clear
+x1=0
+while ((x1<10 || x1>99));do
+  printf "Write first number (10-99): "
   read x1
 done
-printf "Entra el segon número (10-99): "
-read x2
-while ((x1<10 || x>99));do
-  printf "Entra el segon número (10-99): "
+x2=0
+while ((x2<10 || x2>99));do
+  printf "Write second number (10-99): "
   read x2
 done
-r1=$((x1%11))
-if [[ $r1 -ne 0 ]];then
-  sum=$((x1+x2))
-  if [[ $((sum%11)) -eq 0 ]];then
-    echo "Tenen les xifres invertides"
-  else
-    echo "No tenen les xifres invertides"
-  fi
+
+if (((x1%11 !=0 && (x1+x2)%11==0)||(x1%11 ==0 && x1==x2)));then
+  printf "Numbers have same figures in inverted order \n"
 else
-  if ((x1 == x2));then
-    echo "Tenen les xifres invertides"
-  else
-    echo "No tenen les xifres invertides"
-  fi
+  printf "Numbers haven't same figures in inverted order \n"
 fi
